@@ -1,0 +1,33 @@
+{% extends "mainapp/layouts/sidebar_layout.html" %}
+
+    {% block head_title %}Container Details{% endblock %}
+
+    {% block main_content %}
+    <div class="container">
+        <h2 class="h2">Container Details</h2>
+
+        <div class="card">
+            <div class="card-body">
+                
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Name:</strong></div>
+                    <div class="col-8">{{ container.name }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Description:</strong></div>
+                    <div class="col-8">{{ container.description }}</div>
+                </div> 
+                <div class="row mb-2">
+                    <div class="col-4"><strong>Parent Container:</strong></div>
+                    <div class="col-8">{{ container.parent_container }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <a href="{% url 'container_update' container.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'container_delete' container.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'container_list' %}" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+    {% endblock %}

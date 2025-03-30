@@ -1,0 +1,26 @@
+models:
+  - name: Part
+    fields:
+      - name: part_number
+        type: CharField
+        required: true
+        is_unique: true
+      - name: description
+        type: TextField
+        required: false
+      - name: container
+        type: ForeignKey
+        required: true
+        to: Container
+  - name: Container
+    fields:
+      - name: name
+        type: CharField
+        required: true
+      - name: description
+        type: TextField
+        required: false
+      - name: parent_container
+        type: ForeignKey
+        required: false
+        to: Container
